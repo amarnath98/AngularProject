@@ -10,18 +10,18 @@ import { Router } from '@angular/router';
 export class SearchComponent {
 
   searchTerm: String = "";
-  constructor(private activatedRoute: ActivatedRoute, private router:Router){}
-  ngOnInit(): void{
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      if(params['name'])
+      if (params['name'])
         this.searchTerm = params['name'];
     })
   }
 
-  search():void{
-    if(this.searchTerm)
-      this.router.navigateByUrl("/search/"+this.searchTerm)
+  search(): void {
+    if (this.searchTerm)
+      this.router.navigateByUrl("/search/" + this.searchTerm)
     else
-    this.router.navigateByUrl("/");
+      this.router.navigateByUrl("/");
   }
 }

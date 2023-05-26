@@ -1,0 +1,80 @@
+<!-- <div class="main">
+        <img src="{{foodPage.imageUrl}}" alt="">
+        <div class="content">
+            <div class="name">
+                {{foodPage.name}}
+            </div>
+            <span class="favorite">
+                ❤
+            </span>
+            <!-- <div class="stars">
+                <star-rating
+                [value]="food.stars"
+                [totalstars]="5"
+                checkedcolor="red"
+                uncheckedcolor="black"
+                size="20px"
+                [readonly]="true">
+               </star-rating>
+               </div> -->
+            <!-- <div class="product-item-footer">
+                <div class="origins">
+                    <span *ngFor="let origin of foodPage.origins">
+                        {{origin}}
+                    </span>
+                </div>
+                <div class="tags">
+                    <app-tags [foodPageTag]="foodPage.tags"></app-tags>
+                </div>
+                <div class="cook-time">
+                    Time to cook about <strong>{{foodPage.cookTime}}</strong> minutes.
+                </div>
+            </div>
+            <div class="price">
+                <span>
+                    {{foodPage.price | currency}}
+                </span>
+            </div>
+        <div>
+            <button>Add to cart</button>
+        </div>
+        </div>
+</div> -->
+
+<div *ngIf="foodPage" class="container">
+    <img [src]="foodPage.imageUrl" [alt]="foodPage.name" />
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{foodPage.name}}
+            </span>
+            <span class="favorite {{foodPage.favorite?'':'not'}}">
+                ❤
+            </span>
+        </div>
+
+        <div class="origins">
+            <span *ngFor="let origin of foodPage.origins">
+                {{origin}}
+            </span>
+        </div>
+
+        <div class="tags">
+            <app-tags [foodPageTag]="foodPage.tags" justifyContent="start"></app-tags>
+        </div>
+
+        <div class="cook-time">
+            <span>
+                Time to cook about <strong>{{foodPage.cookTime}}</strong> minutes
+            </span>
+        </div>
+
+        <div class="price">
+            <span>{{foodPage.price|currency}}</span>
+        </div>
+        
+        <button (click)="addToCart()">Add To Cart</button>
+    </div>
+
+</div>
